@@ -1,13 +1,13 @@
-# Clustering Network Traffic for Cybersecurity Analysis Using CICIDS2017 Dataset
+# 💻 Clustering Network Traffic for Cybersecurity Analysis Using CICIDS2017 Dataset
 
-## [LINK TO PROJECT NOTEBOOK](https://github.com/Karan-D-Software/Machine-Learning-Network-Security/blob/main/Project.ipynb)
+## 📕 [LINK TO PROJECT NOTEBOOK](https://github.com/Karan-D-Software/Machine-Learning-Network-Security/blob/main/Project.ipynb)
 
 This project aims to perform clustering analysis on the CICIDS2017 dataset to identify patterns and group similar types of network traffic. The objective is to detect and categorize different types of network activities, which can help in identifying normal and potentially malicious behaviors. Through this analysis, we hope to gain insights into the characteristics of various network traffic clusters and enhance our understanding of cybersecurity threats.
 
-## Dataset
+## 📈 Dataset
 We use the CICIDS2017 dataset, which includes various types of network traffic, such as normal traffic, DoS, DDoS, and other types of attacks. The dataset is publicly available on Kaggle. [Link to the CICIDS2017 Dataset on Kaggle](https://www.kaggle.com/datasets/sweety18/cicids2017-full-dataset)
 
-## Table of Contents
+## ✅ Table of Contents
 1. [Introduction](#introduction)
 2. [Problem Analysis](#problem-analysis)
 3. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
@@ -15,7 +15,7 @@ We use the CICIDS2017 dataset, which includes various types of network traffic, 
     - [Data Distribution Analysis](#data-distribution-analysis)
     - [Correlations Analysis](#correlations-analysis)
     - [Outlier Analysis](#outlier-analysis)
-    - [Final Data Cleaning](#final-data-cleaning)
+    - [Final Data Cleaning](#final-data-cleaning-and-outlier-removal)
 4. [Model Training and Evaluation](#model-training-and-evaluation)
     - [Model Training](#model-training)
     - [Evaluation](#evaluation)
@@ -23,54 +23,6 @@ We use the CICIDS2017 dataset, which includes various types of network traffic, 
     - [Clustering Results](#clustering-results)
     - [Visualization and Interpretation](#visualization-and-interpretation)
     - [Discussion](#discussion)
-6. [References](#references)
-
-## Introduction
-In this project, we aim to perform clustering analysis on the CICIDS2017 dataset to identify patterns and group similar types of network traffic. The CICIDS2017 dataset, provided by the Canadian Institute for Cybersecurity (CIC), includes a diverse range of network traffic data, encompassing normal and various attack activities. By leveraging unsupervised learning techniques, we seek to enhance the understanding of network behaviours and identify potential security threats, contributing valuable insights to cybersecurity.
-
-## Problem Analysis
-### What is the Problem and Its Impact on Industry?
-
-The problem we are addressing is detecting and categorizing various types of network traffic, including potentially malicious activities, within large datasets. Cybersecurity is a critical concern for industries worldwide, as cyber-attacks can lead to significant financial losses, data breaches, and reputational damage. Traditional methods of detecting malicious activities often need help with network traffic data's vast and evolving nature. Clustering analysis offers a way to identify unusual patterns and group similar types of traffic, providing an automated method to enhance threat detection and improve network security measures.
-
-### Machine Learning Model and Rationale
-For this project, we have carefully selected two powerful clustering models: K-means clustering and DBSCAN (Density-Based Spatial Clustering of Applications with Noise). K-means, known for its simplicity and efficiency, excels in partitioning data into distinct clusters based on similarity, a key feature for identifying patterns in large datasets. DBSCAN, on the other hand, is a champion in handling noisy data and finding arbitrarily shaped clusters, making it a potent tool for identifying outliers and unusual network behaviours. These models, when used in tandem, provide a robust framework for analyzing the CICIDS2017 dataset, instilling confidence in the effectiveness of our approach.
-
-### Expected Outcome
-The expected outcome of this project is to develop a comprehensive clustering analysis of the CICIDS2017 dataset that successfully identifies and categorizes different types of network traffic. The results should highlight distinct clusters representing normal and malicious activities, providing valuable insights into network behaviours. This analysis aims to enhance the understanding of network security threats and support the development of more effective cybersecurity measures. By uncovering hidden patterns in the data, we aim to contribute to the broader effort of improving network security in various industries.
-
-## Exploratory Data Analysis (EDA)
-The CICIDS2017 dataset contains network traffic data, including regular traffic and various attack types. It has a comprehensive set of features capturing network packets and flows. The initial steps involve loading the dataset, understanding its structure, and performing basic data cleaning, including handling missing values, converting data types, and removing irrelevant features for detailed analysis.
-
-We have 2214468 rows of data. 
-
-The 79 columns are as follows (`Label` is the target variable):
-` Destination Port`,` Flow Duration`,` Total Fwd Packets`,` Total Backward Packets`,`Total Length of Fwd Packets`,` Total Length of Bwd Packets`,` Fwd Packet Length Max`,` Fwd Packet Length Min`,` Fwd Packet Length Mean`,` Fwd Packet Length Std`,`Bwd Packet Length Max`,` Bwd Packet Length Min`,` Bwd Packet Length Mean`,` Bwd Packet Length Std`,`Flow Bytes`,` Flow Packets`,` Flow IAT Mean`,` Flow IAT Std`,` Flow IAT Max`,` Flow IAT Min`,`Fwd IAT Total`,` Fwd IAT Mean`,` Fwd IAT Std`,` Fwd IAT Max`,` Fwd IAT Min`,`Bwd IAT Total`,` Bwd IAT Mean`,` Bwd IAT Std`,` Bwd IAT Max`,` Bwd IAT Min`,`Fwd PSH Flags`,` Bwd PSH Flags`,` Fwd URG Flags`,` Bwd URG Flags`,` Fwd Header Length`,` Bwd Header Length`,`Fwd Packets`,` Bwd Packets`,` Min Packet Length`,` Max Packet Length`,` Packet Length Mean`,` Packet Length Std`,` Packet Length Variance`,`FIN Flag Count`,` SYN Flag Count`,` RST Flag Count`,` PSH Flag Count`,` ACK Flag Count`,` URG Flag Count`,` CWE Flag Count`,` ECE Flag Count`,` Down/Up Ratio`,` Average Packet Size`,` Avg Fwd Segment Size`,` Avg Bwd Segment Size`,` Fwd Header Length.1`,`Fwd Avg Bytes/Bulk`,` Fwd Avg Packets/Bulk`,` Fwd Avg Bulk Rate`,` Bwd Avg Bytes/Bulk`,` Bwd Avg Packets/Bulk`,`Bwd Avg Bulk Rate`,`Subflow Fwd Packets`,` Subflow Fwd Bytes`,` Subflow Bwd Packets`,` Subflow Bwd Bytes`,`Init_Win_bytes_forward`,` Init_Win_bytes_backward`,` act_data_pkt_fwd`,` min_seg_size_forward`,`Active Mean`,` Active Std`,` Active Max`,` Active Min`,`Idle Mean`,` Idle Std`,` Idle Max`,` Idle Min`,` Label`
-
-## About the Data and Initial Data Cleaning
-
-# Clustering Network Traffic for Cybersecurity Analysis Using CICIDS2017 Dataset
-
-## [LINK TO GITHUB REPOSITORY](https://github.com/Karan-D-Software/Machine-Learning-Network-Security)
-
-This project aims to perform clustering analysis on the CICIDS2017 dataset to identify patterns and group similar types of network traffic. The objective is to detect and categorize different types of network activities, which can help in identifying normal and potentially malicious behaviors. Through this analysis, we hope to gain insights into the characteristics of various network traffic clusters and enhance our understanding of cybersecurity threats.
-
-## Dataset
-We use the CICIDS2017 dataset, which includes various types of network traffic, such as normal traffic, DoS, DDoS, and other types of attacks. The dataset is publicly available on Kaggle. [Link to the CICIDS2017 Dataset on Kaggle](https://www.kaggle.com/datasets/sweety18/cicids2017-full-dataset)
-
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Problem Analysis](#problem-analysis)
-3. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-    - [About the Data and Initial Data Cleaning](#about-the-data-and-initial-data-cleaning)
-    - [Data Distribution Analysis](#data-distribution-analysis)
-    - [Correlations Analysis](#correlations-analysis)
-    - [Missing Values Analysis](#missing-values-analysis)
-    - [Outlier Analysis](#outlier-analysis)
-    - [Final Data Cleaning](#final-data-cleaning)
-4. [Model Training and Evaluation](#model-training-and-evaluation)
-    - [Clustering Models](#clustering-models-eg-k-means-dbscan-hierarchical-clustering)
-5. [Results and Discussion](#results-and-discussion)
 6. [References](#references)
 
 ## Introduction
@@ -180,7 +132,7 @@ data_clean = remove_outliers(data, 10)
 print(data_clean.info())
 ```
 
-##Model Training and Evaluation
+## Model Training and Evaluation
 ### Model Training
 
 In this project, we aimed to cluster network traffic data using the CICIDS2017 dataset. Given the dataset's large size and high dimensionality, we applied Principal Component Analysis (PCA) to reduce the number of features. PCA helps transform the dataset into a set of linearly uncorrelated variables called principal components. We chose 10 principal components, which captured a significant portion of the data's variance, as indicated by the explained variance ratios: [0.30825391, 0.13984622, 0.08635273, 0.06489544, 0.05652954, 0.04397629, 0.03506657, 0.0309548, 0.02787168, 0.02201449]. This reduction was essential for making the clustering process more efficient and manageable, as working with fewer dimensions generally speeds up computation and reduces noise in the data.
@@ -240,3 +192,18 @@ The choice of MiniBatchKMeans was driven by the need to handle a large dataset e
 While the Silhouette Score is reasonably good, there is still room for further exploration and improvement. Fine-tuning the parameters of the MiniBatchKMeans algorithm, such as the number of clusters and batch size, could potentially yield even better results. Furthermore, venturing into other clustering algorithms like DBSCAN or hierarchical clustering could offer fresh perspectives on the data's structure, inspiring new avenues of research.
 
 Undoubtedly, the combination of PCA and MiniBatchKMeans has provided a robust framework for analyzing the CICIDS2017 dataset. The insights gleaned from this clustering analysis are not just valuable, but crucial for understanding network traffic patterns and bolstering cybersecurity measures, underscoring the significance of our work.
+
+## References
+Canadian Institute for Cybersecurity (CIC). (2017). CICIDS 2017 dataset. Retrieved from [https://www.unb.ca/cic/datasets/ids-2017.html](https://www.unb.ca/cic/datasets/ids-2017.html)
+
+Kaggle. (2023). CICIDS2017 full dataset. Retrieved May 27, 2024, from [https://www.kaggle.com/datasets/sweety18/cicids2017-full-dataset](https://www.kaggle.com/datasets/sweety18/cicids2017-full-dataset)
+
+Scikit-Learn. (n.d.). Clustering. Retrieved from [https://scikit-learn.org/stable/modules/clustering.html#k-means](https://scikit-learn.org/stable/modules/clustering.html#k-means)
+
+StatQuest. (n.d.). Principal Component Analysis (PCA) and KMeans Clustering. Retrieved from [https://statquest.org/video-index/](https://statquest.org/video-index/)
+
+Towards Data Science. (2019). Clustering Evaluation: How to measure the quality of clustering results. Retrieved from [https://towardsdatascience.com/clustering-evaluation-how-to-measure-the-quality-of-clustering-results-9239a8c47421](https://towardsdatascience.com/clustering-evaluation-how-to-measure-the-quality-of-clustering-results-9239a8c47421)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+© Karan D 2024
