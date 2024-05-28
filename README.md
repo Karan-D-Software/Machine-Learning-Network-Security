@@ -1,6 +1,6 @@
 # Clustering Network Traffic for Cybersecurity Analysis Using CICIDS2017 Dataset
 
-## [LINK TO GITHUB REPOSITORY](https://github.com/Karan-D-Software/Machine-Learning-Network-Security)
+## [LINK TO PROJECT NOTEBOOK](https://github.com/Karan-D-Software/Machine-Learning-Network-Security/blob/main/Project.ipynb)
 
 This project aims to perform clustering analysis on the CICIDS2017 dataset to identify patterns and group similar types of network traffic. The objective is to detect and categorize different types of network activities, which can help in identifying normal and potentially malicious behaviors. Through this analysis, we hope to gain insights into the characteristics of various network traffic clusters and enhance our understanding of cybersecurity threats.
 
@@ -20,6 +20,9 @@ We use the CICIDS2017 dataset, which includes various types of network traffic, 
     - [Model Training](#model-training)
     - [Evaluation](#evaluation)
 5. [Results and Discussion](#results-and-discussion)
+    - [Clustering Results](#clustering-results)
+    - [Visualization and Interpretation](#visualization-and-interpretation)
+    - [Discussion](#discussion)
 6. [References](#references)
 
 ## Introduction
@@ -215,3 +218,25 @@ mbk_labels = mbk.fit_predict(data_pca)
 The performance of the MiniBatchKMeans algorithm was evaluated using the Silhouette Score, a metric that measures how similar a data point is to its own cluster compared to other clusters. The Silhouette Score for our model was 0.472506027402379, indicating a reasonable separation and compactness of the clusters. A higher Silhouette Score implies better-defined clusters, with values typically ranging from -1 to 1. The score achieved in our project suggests that the clusters formed are meaningful and well-separated, though there may still be room for improvement.
 
 To visualize the clustering results, we plotted the data points in the reduced PCA space. The scatter plot demonstrates distinct groupings of data points, with each color representing a different cluster. This visual representation helps in understanding the clustering behavior and identifying potential patterns within the network traffic data. The PCA transformation and clustering not only reduced the dimensionality but also highlighted the underlying structure of the data, which is crucial for identifying normal and potentially malicious behaviors. For those interested in a deeper dive into clustering evaluation metrics and visualization techniques, additional resources can be found on [Towards Data Science](https://towardsdatascience.com/clustering-evaluation-how-to-measure-the-quality-of-clustering-results-9239a8c47421).
+
+![batch.png](./images/batch.png "Clustering Results in Reduced PCA Space")
+
+## Results and Discussion
+### Clustering Results
+The clustering analysis on the CICIDS2017 dataset using MiniBatchKMeans revealed distinct groups within the network traffic data. After applying PCA to reduce the dataset to 10 principal components, the MiniBatchKMeans algorithm was able to process the data efficiently, even with its large size. The explained variance ratios of the PCA components were [0.30825391, 0.13984622, 0.08635273, 0.06489544, 0.05652954, 0.04397629, 0.03506657, 0.0309548, 0.02787168, 0.02201449], indicating that these components captured a significant portion of the data's variability.
+
+The Silhouette Score for the clustering results was 0.472506027402379, which suggests that the clusters formed by the MiniBatchKMeans algorithm were reasonably well-defined. This score reflects how similar data points are within their clusters compared to those in other clusters, with a higher score indicating better-defined clusters. Although a score of 0.472506027402379 shows a reasonable level of cluster separation and compactness, there is still room for optimization to achieve even better clustering performance.
+
+### Visualization and Interpretation
+
+The scatter plot of the clustered data in the reduced PCA space clearly shows distinct groupings, with each colour representing a different cluster. This visualization is essential for interpreting the clustering results, as it provides an intuitive understanding of the data's structure. The clusters highlight potential patterns within the network traffic, which can be crucial for identifying normal versus malicious behaviours. 
+
+For instance, specific clusters may correspond to benign network traffic, while others could represent various types of cyber-attacks such as DDoS or infiltration attempts. By examining the characteristics of these clusters, we can gain insights into the network's behaviour and enhance our ability to detect and mitigate cybersecurity threats.
+
+#### Discussion
+
+The choice of MiniBatchKMeans was driven by the need to handle a large dataset efficiently. This algorithm's ability to process data in small batches made it suitable for our analysis, allowing us to manage computational resources effectively. Additionally, using PCA for dimensionality reduction helped in simplifying the data, making the clustering process more manageable and improving performance.
+
+While the Silhouette Score is reasonably good, there is still room for further exploration and improvement. Fine-tuning the parameters of the MiniBatchKMeans algorithm, such as the number of clusters and batch size, could potentially yield even better results. Furthermore, venturing into other clustering algorithms like DBSCAN or hierarchical clustering could offer fresh perspectives on the data's structure, inspiring new avenues of research.
+
+Undoubtedly, the combination of PCA and MiniBatchKMeans has provided a robust framework for analyzing the CICIDS2017 dataset. The insights gleaned from this clustering analysis are not just valuable, but crucial for understanding network traffic patterns and bolstering cybersecurity measures, underscoring the significance of our work.
